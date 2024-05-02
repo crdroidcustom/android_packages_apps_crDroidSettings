@@ -27,4 +27,6 @@
     <string name="sound_summary">Adjust sound settings, pulse, and volume controls</string>
     <string name="user_summary">Fine-tune user interface elements</string>
 
+    <!-- Branding -->
+    <string name="derp_branding">crDroid.</string>
 </resources>
