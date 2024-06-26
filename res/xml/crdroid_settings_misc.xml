@@ -31,7 +31,7 @@
             android:targetClass="io.chaldeaprjkt.gamespace.settings.SettingsActivity" />
     </Preference>
 
-    <com.crdroid.settings.preferences.SecureSettingSwitchPreference
+    <com.crdroid.settings.preferences.GlobalSettingSwitchPreference
         android:key="window_ignore_secure"
         android:icon="@drawable/ic_unlock_alert"
         android:title="@string/ignore_window_secure_title"
