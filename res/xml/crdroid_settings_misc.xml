@@ -78,6 +78,13 @@
         android:summary="@string/netflix_spoof_summary"
         android:defaultValue="false" />
 
+        <com.crdroid.settings.preferences.GlobalSettingSwitchPreference
+            android:key="hide_screen_capture_status"
+            android:icon="@drawable/ic_unlock_alert"
+            android:title="@string/hide_screen_capture_status_title"
+            android:summary="@string/hide_screen_capture_status_summary"
+            android:defaultValue="false"/>
+
     <!-- Google services
     <Preference
         android:key="gms_enabled_settings"
