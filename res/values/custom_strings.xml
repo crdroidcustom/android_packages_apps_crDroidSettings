@@ -29,4 +29,8 @@
 
     <!-- Branding -->
     <string name="derp_branding">crDroid.</string>
+
+    <!-- Ignore window secure -->
+    <string name="ignore_window_secure_title">Ignore window secure flags</string>
+    <string name="ignore_window_secure_summary">Remove the screenshots and screenrecords limits for all applications</string>    
 </resources>
