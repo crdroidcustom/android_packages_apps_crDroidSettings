@@ -31,11 +31,12 @@
             android:targetClass="io.chaldeaprjkt.gamespace.settings.SettingsActivity" />
     </Preference>
 
-    <!-- Keybox Data -->
-    <com.crdroid.settings.preferences.KeyboxDataPreference
-        android:key="keybox_data_setting"
-        android:icon="@drawable/ic_key"
-        android:title="@string/keybox_data_title"/>
+    <com.crdroid.settings.preferences.SecureSettingSwitchPreference
+        android:key="window_ignore_secure"
+        android:icon="@drawable/ic_unlock_alert"
+        android:title="@string/ignore_window_secure_title"
+        android:summary="@string/ignore_window_secure_summary"
+        android:defaultValue="false"/>
 
     <!-- Google Play Integrity -->
     <com.crdroid.settings.preferences.SystemPropertySwitchPreference
@@ -44,6 +45,12 @@
         android:title="@string/pi_spoof_title"
         android:summary="@string/pi_spoof_summary"
         android:defaultValue="true" />
+
+    <!-- Keybox Data -->
+    <com.crdroid.settings.preferences.KeyboxDataPreference
+        android:key="keybox_data_setting"
+        android:icon="@drawable/ic_key"
+        android:title="@string/keybox_data_title"/>
 
     <!-- Unlock FPS for specific games -->
     <com.crdroid.settings.preferences.SystemPropertySwitchPreference
