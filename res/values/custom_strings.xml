@@ -56,4 +56,8 @@
     <!-- Split Shade -->
     <string name="qs_split_shade_enabled_title">Split shade panel</string>
     <string name="qs_split_shade_enabled_summary">Enable new experimental split shade quicksettings. Breaks landscape headsup notifications</string>
+
+    <!-- Ignore window secure -->
+    <string name="ignore_window_secure_title">Ignore window secure flags</string>
+    <string name="ignore_window_secure_summary">Remove the screenshots and screenrecords limits for all applications</string>    
 </resources>
