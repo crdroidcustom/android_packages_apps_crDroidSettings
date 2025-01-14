@@ -37,7 +37,6 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 
 import com.crdroid.settings.fragments.quicksettings.LayoutSettings;
-import com.crdroid.settings.fragments.quicksettings.QsHeaderImageSettings;
 import com.crdroid.settings.preferences.CustomSeekBarPreference;
 
 import lineageos.providers.LineageSettings;
@@ -174,7 +173,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         updateQsStyle(mContext);
         updateQsPanelStyle(mContext);
         LayoutSettings.reset(mContext);
-        QsHeaderImageSettings.reset(mContext);
     }
 
     private static void updateQsStyle(Context context) {
