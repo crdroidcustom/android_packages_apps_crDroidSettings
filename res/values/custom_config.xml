@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2024 The 2by2 Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Download PIF JSON target -->
+    <string name="spoofing_pif_json_download_url">https://raw.githubusercontent.com/crdroidcustom/android_vendor_certification/refs/heads/15/gms_certified_props.json</string>
+</resources>

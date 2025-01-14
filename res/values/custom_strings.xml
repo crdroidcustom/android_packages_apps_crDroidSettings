@@ -49,4 +49,20 @@
     <string name="media_controls_squiggle_summary">Show a squiggly, annoying, useless, sperm-looking and distracting progress bar on media player</string>
     <string name="media_controls_actions_title">Custom actions limit</string>
     <string name="media_controls_actions_summary">The maximum number of buttons that apps are allowed to add to the player</string>
+
+    <!-- Spoofing -->
+    <string name="spoofing_title">Spoofing</string>
+    <string name="spoofing_summary">Play integrity, google photos and more</string>
+    <string name="spoofing_pif_toggle_title">Disable Play Integrity fix spoofing</string>
+    <string name="spoofing_pif_toggle_summary">Disable the ROM\'s built-in Play Integrity fix values. Please turn on when you use third party modules. (E.g. TrickyStore)</string>
+    <string name="spoofing_pif_key_attestation_toggle_title">Disable Key Attestation</string>
+    <string name="spoofing_pif_key_attestation_toggle_summary">Disable the ROM\'s built-in key attestation features</string>
+    <string name="spoofing_pif_manage_title">Manage PIF spoofing values</string>
+    <string name="spoofing_pif_manage_summary">Download the PIF file and apply it with manual selection</string>
+    <string name="spoofing_pif_json_download_title">Download the general PIF JSON</string>
+    <string name="spoofing_pif_json_download_message">Downloading latest pif.json</string>
+    <string name="spoofing_pif_json_select_title">Select PIF JSON File and Apply</string>
+    <string name="spoofing_pif_json_select_success">Successfully updated fingerprints. Now reboot to take effect.</string>
+    <string name="spoofing_photos_title">Google Photos spoof</string>
+    <string name="spoofing_photos_summary">Spoof the Google Photos app as a Pixel XL</string>
 </resources>
