@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2016-2024 crDroid Android Project
+     Copyright (C) 2016-2025 crDroid Android Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -160,60 +160,7 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:key="qs_layout_category"
-        android:title="@string/qs_layout_category_title">
-
-        <ListPreference
-            android:key="qs_tile_ui_style"
-            android:icon="@drawable/ic_shapes"
-            android:title="@string/qs_tile_ui_style_title"
-            android:entries="@array/qs_tile_ui_style_entries"
-            android:entryValues="@array/qs_tile_ui_style_values"
-            android:defaultValue="0" />
-
-        <ListPreference
-            android:key="qs_panel_style"
-            android:icon="@drawable/ic_color_bucket"
-            android:title="@string/qs_panel_style_title"
-            android:entries="@array/qs_panel_style_entries"
-            android:entryValues="@array/qs_panel_style_values"
-            android:defaultValue="0" />
-
-        <com.crdroid.settings.preferences.SystemSettingSwitchPreference
-            android:key="qs_tile_label_hide"
-            android:icon="@drawable/ic_text"
-            android:title="@string/qs_tile_label_hide_title"
-            android:summary="@string/qs_tile_label_hide_summary"
-            android:defaultValue="false" />
-
-        <com.crdroid.settings.preferences.SystemSettingSeekBarPreference
-            android:key="qs_tile_label_size"
-            android:icon="@drawable/ic_text"
-            android:title="@string/qs_tile_label_size_title"
-            android:max="15"
-            settings:min="10"
-            settings:interval="1"
-            settings:units="sp"
-            android:defaultValue="14" />
-
-        <com.crdroid.settings.preferences.SystemSettingSwitchPreference
-            android:key="qs_tile_vertical_layout"
-            android:icon="@drawable/ic_qs_tile"
-            android:title="@string/qs_tile_layout_title"
-            android:summary="@string/qs_tile_layout_summary"
-            android:defaultValue="false" />
-
-        <Preference
-            android:key="qs_layout_columns_rows"
-            android:icon="@drawable/ic_qs_tile"
-            android:title="@string/qs_layout_columns_rows_title"
-            android:summary="@string/qs_layout_columns_rows_summary"
-            android:fragment="com.crdroid.settings.fragments.quicksettings.LayoutSettings" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
+    <!--<PreferenceCategory
         android:title="@string/qs_tile_animation_title">
 
         <com.crdroid.settings.preferences.SystemSettingListPreference
@@ -242,7 +189,7 @@
             android:entryValues="@array/qs_tile_animation_interpolator_values"
             android:defaultValue="0" />
 
-    </PreferenceCategory>
+    </PreferenceCategory>-->
 
     <PreferenceCategory 
          android:title="@string/qs_footer_category">
