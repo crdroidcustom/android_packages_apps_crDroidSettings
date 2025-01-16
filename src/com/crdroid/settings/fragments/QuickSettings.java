@@ -18,6 +18,7 @@ package com.crdroid.settings.fragments;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.UserHandle;
 import android.provider.Settings;
 
@@ -28,6 +29,7 @@ import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.internal.logging.nano.MetricsProto;
+import com.android.internal.util.crdroid.ThemeUtils;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -56,12 +58,21 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private ListPreference mBrightnessSliderPosition;
     private SwitchPreferenceCompat mBrightnessSliderHaptic;
     private SwitchPreferenceCompat mShowAutoBrightness;
+    private Preference mSplitShadePref;    
+
+    private static ThemeUtils mThemeUtils;
+
+    private  ThemeUtils mThemeUtils_split;
+
+    private Handler mHandler = new Handler();    
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.crdroid_settings_quicksettings);
+
+        mThemeUtils = new ThemeUtils(getContext());        
 
         final Context mContext = getContext();
         final ContentResolver resolver = mContext.getContentResolver();
@@ -86,6 +97,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         } else {
             prefScreen.removePreference(mShowAutoBrightness);
         }
+
+        mSplitShadePref = (Preference) findPreference("qs_split_shade_enabled");
+        mSplitShadePref.setOnPreferenceChangeListener(this);        
     }
 
     @Override
@@ -99,6 +113,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             if (mShowAutoBrightness != null)
                 mShowAutoBrightness.setEnabled(value > 0);
             return true;
+        } else if (preference == mSplitShadePref) {
+            int value = (boolean) newValue ? 1 : 0;
+            Settings.System.putIntForUser(resolver,
+                "qs_split_shade_enabled", value, UserHandle.USER_CURRENT);
+            updateSplitShadeEnabled(getActivity());
+            return true;            
         }
         return false;
     }
@@ -127,6 +147,25 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                 LineageSettings.Secure.QS_BRIGHTNESS_SLIDER_POSITION, 0, UserHandle.USER_CURRENT);
         LineageSettings.Secure.putIntForUser(resolver,
                 LineageSettings.Secure.QS_SHOW_AUTO_BRIGHTNESS, 1, UserHandle.USER_CURRENT);
+    }
+
+    private void updateSplitShadeEnabled(Context context) {
+        ContentResolver resolver = context.getContentResolver();
+        boolean splitShadeEnabled = Settings.System.getIntForUser(
+                resolver,
+                "qs_split_shade_enabled" , 0, UserHandle.USER_CURRENT) != 0;
+	    String splitShadeStyleCategory = "android.theme.customization.better_qs";
+        String overlayThemeTarget  = "com.android.systemui";
+        String overlayThemePackage  = "com.android.system.qs.ui.better_qs";
+        if (mThemeUtils_split == null) {
+            mThemeUtils_split = new ThemeUtils(context);
+        }
+        mHandler.postDelayed(() -> {
+            mThemeUtils_split.setOverlayEnabled(splitShadeStyleCategory, overlayThemeTarget, overlayThemeTarget);
+            if (splitShadeEnabled) {
+                mThemeUtils_split.setOverlayEnabled(splitShadeStyleCategory, overlayThemePackage, overlayThemeTarget);
+            }
+        }, 1250);
     }
 
     @Override
