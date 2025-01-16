@@ -23,6 +23,14 @@
     <PreferenceCategory
          android:title="@string/qs_misc_category">
 
+        <!-- Better Landscape QS (EXPERIMENTAL) -->
+        <com.crdroid.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_split_shade_enabled"
+            android:icon="@drawable/ic_qs_tile"
+            android:title="@string/qs_split_shade_enabled_title"
+            android:summary="@string/qs_split_shade_enabled_summary"
+            android:defaultValue="false" />
+
         <!-- QS clock
         <com.crdroid.settings.preferences.SystemSettingSwitchPreference
             android:key="show_qs_clock"

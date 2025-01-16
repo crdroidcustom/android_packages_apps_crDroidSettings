@@ -64,4 +64,8 @@
     <!-- USB configuration -->
     <string name="usb_default_config_title">USB configuration</string>
     <string name="usb_default_config_summary">Choose the default behavior when connected to a device via USB</string>
+
+    <!-- Split Shade -->
+    <string name="qs_split_shade_enabled_title">Split shade panel</string>
+    <string name="qs_split_shade_enabled_summary">Enable new experimental split shade quicksettings. Breaks landscape headsup notifications</string>
 </resources>
