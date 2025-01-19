@@ -55,9 +55,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String KEY_BRIGHTNESS_SLIDER_POSITION = "qs_brightness_slider_position";
     private static final String KEY_BRIGHTNESS_SLIDER_HAPTIC = "qs_brightness_slider_haptic";
     private static final String KEY_SHOW_AUTO_BRIGHTNESS = "qs_show_auto_brightness";
-    private static final String KEY_PREF_TILE_ANIM_STYLE = "qs_tile_animation_style";
-    private static final String KEY_PREF_TILE_ANIM_DURATION = "qs_tile_animation_duration";
-    private static final String KEY_PREF_TILE_ANIM_INTERPOLATOR = "qs_tile_animation_interpolator";
     private static final String KEY_QS_UI_STYLE  = "qs_tile_ui_style";
     private static final String KEY_QS_PANEL_STYLE  = "qs_panel_style";
 
@@ -65,9 +62,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private ListPreference mBrightnessSliderPosition;
     private SwitchPreferenceCompat mBrightnessSliderHaptic;
     private SwitchPreferenceCompat mShowAutoBrightness;
-    private ListPreference mTileAnimationStyle;
-    private CustomSeekBarPreference mTileAnimationDuration;
-    private ListPreference mTileAnimationInterpolator;
     private ListPreference mQsUI;
     private ListPreference mQsPanelStyle;
 
@@ -104,15 +98,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         } else {
             prefScreen.removePreference(mShowAutoBrightness);
         }
-        mTileAnimationStyle = (ListPreference) findPreference(KEY_PREF_TILE_ANIM_STYLE);
-        mTileAnimationDuration = (CustomSeekBarPreference) findPreference(KEY_PREF_TILE_ANIM_DURATION);
-        mTileAnimationInterpolator = (ListPreference) findPreference(KEY_PREF_TILE_ANIM_INTERPOLATOR);
-
-        mTileAnimationStyle.setOnPreferenceChangeListener(this);
-
-        int tileAnimationStyle = Settings.System.getIntForUser(resolver,
-                Settings.System.QS_TILE_ANIMATION_STYLE, 0, UserHandle.USER_CURRENT);
-        updateAnimTileStyle(tileAnimationStyle);
 
         mQsUI = (ListPreference) findPreference(KEY_QS_UI_STYLE);
         mQsUI.setOnPreferenceChangeListener(this);
@@ -133,10 +118,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             mBrightnessSliderHaptic.setEnabled(value > 0);
             if (mShowAutoBrightness != null)
                 mShowAutoBrightness.setEnabled(value > 0);
-            return true;
-        } else if (preference == mTileAnimationStyle) {
-            int value = Integer.parseInt((String) newValue);
-            updateAnimTileStyle(value);
             return true;
         } else if (preference == mQsUI) {
             int value = Integer.parseInt((String) newValue);
@@ -169,12 +150,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         Settings.System.putIntForUser(resolver,
                 Settings.System.QS_TRANSPARENCY, 100, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
-                Settings.System.QS_TILE_ANIMATION_STYLE, 0, UserHandle.USER_CURRENT);
-        Settings.System.putIntForUser(resolver,
-                Settings.System.QS_TILE_ANIMATION_DURATION, 1, UserHandle.USER_CURRENT);
-        Settings.System.putIntForUser(resolver,
-                Settings.System.QS_TILE_ANIMATION_INTERPOLATOR, 0, UserHandle.USER_CURRENT);
-        Settings.System.putIntForUser(resolver,
                 Settings.System.QS_TILE_UI_STYLE, 0, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.QS_PANEL_STYLE, 0, UserHandle.USER_CURRENT);
@@ -200,11 +175,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         updateQsPanelStyle(mContext);
         LayoutSettings.reset(mContext);
         QsHeaderImageSettings.reset(mContext);
-    }
-
-    private void updateAnimTileStyle(int tileAnimationStyle) {
-        mTileAnimationDuration.setEnabled(tileAnimationStyle != 0);
-        mTileAnimationInterpolator.setEnabled(tileAnimationStyle != 0);
     }
 
     private static void updateQsStyle(Context context) {
