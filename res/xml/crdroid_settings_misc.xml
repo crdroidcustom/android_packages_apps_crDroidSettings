@@ -19,6 +19,20 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <Preference
+        android:key="hide_developer_status_settings"
+        android:icon="@drawable/ic_hide"
+        android:title="@string/hide_developer_status_title"
+        android:summary="@string/hide_developer_status_summary"
+        android:fragment="com.android.settings.security.HideDeveloperStatusSettings" />
+
+    <Preference
+        android:key="hide_applist_setting"
+        android:icon="@drawable/ic_hide"            
+        android:title="@string/hide_applist_title"
+        android:summary="@string/hide_applist_summary"
+        android:fragment="com.android.settings.custom.security.HideAppListSettings" />
+
+    <Preference
         android:key="default_usb_configuration"
         android:fragment="com.android.settings.connecteddevice.usb.UsbDefaultFragment"
         android:icon="@drawable/ic_usb_24"
@@ -37,13 +51,6 @@
             android:targetPackage="io.chaldeaprjkt.gamespace"
             android:targetClass="io.chaldeaprjkt.gamespace.settings.SettingsActivity" />
     </Preference>
-
-    <com.crdroid.settings.preferences.GlobalSettingSwitchPreference
-        android:key="window_ignore_secure"
-        android:icon="@drawable/ic_unlock_alert"
-        android:title="@string/ignore_window_secure_title"
-        android:summary="@string/ignore_window_secure_summary"
-        android:defaultValue="false"/>
 
     <!-- Google Play Integrity -->
     <com.crdroid.settings.preferences.SystemPropertySwitchPreference
@@ -74,12 +81,12 @@
         android:summary="@string/use_photos_spoof_summary"
         android:defaultValue="true" />
 
-        <Preference
-            android:key="hide_applist_setting"
-            android:icon="@drawable/ic_hide"            
-            android:title="@string/hide_applist_title"
-            android:summary="@string/hide_applist_summary"
-            android:fragment="com.android.settings.custom.security.HideAppListSettings" />
+    <com.crdroid.settings.preferences.GlobalSettingSwitchPreference
+        android:key="window_ignore_secure"
+        android:icon="@drawable/ic_unlock_alert"
+        android:title="@string/ignore_window_secure_title"
+        android:summary="@string/ignore_window_secure_summary"
+        android:defaultValue="false"/>
 
         <com.crdroid.settings.preferences.SystemSettingSwitchPreference
             android:key="hide_screen_capture_status"
