@@ -172,7 +172,6 @@ public class crDroidSettingsLayout extends SettingsPreferenceFragment {
             frags[5] = new Notifications();
             frags[6] = new Sound();
             frags[7] = new Miscellaneous();
-            frags[8] = new About();
         }
 
         @Override
@@ -202,7 +201,6 @@ public class crDroidSettingsLayout extends SettingsPreferenceFragment {
             getString(R.string.notifications_title),
             getString(R.string.sound_title),
             getString(R.string.misc_title),
-            getString(R.string.about_crdroid)
         };
         return titleString;
     }
