@@ -64,6 +64,7 @@
     <string name="custom_color">Custom color</string>
     <string name="restart_systemui">Restart SystemUI for change to take effect!</string>
     <string name="default_value">Default</string>
+    <string name="general_string">General</string>
 
     <!-- Changelog -->
     <string name="changelog_crdroid_title">Current changelog</string>

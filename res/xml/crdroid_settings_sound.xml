@@ -19,6 +19,9 @@
     xmlns:lineage="http://schemas.android.com/apk/res-auto"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <PreferenceCategory
+        android:title="@string/general_string" />
+
     <!-- Pulse music visualizer -->
     <Preference
         android:key="pulse_settings"
