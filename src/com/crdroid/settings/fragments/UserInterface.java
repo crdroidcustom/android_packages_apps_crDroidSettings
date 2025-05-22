@@ -22,6 +22,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.UserHandle;
+import android.os.SystemProperties;
 import android.provider.Settings;
 import android.text.TextUtils;
 
@@ -29,7 +30,9 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.SwitchPreferenceCompat;
 
+import com.android.internal.util.crdroid.SystemRestartUtils;
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -49,6 +52,8 @@ public class UserInterface extends SettingsPreferenceFragment {
 
     private static final String KEY_FORCE_FULL_SCREEN = "display_cutout_force_fullscreen_settings";
     private static final String SMART_PIXELS = "smart_pixels";
+    private static final String KEY_EXPRESSIVE_DESIGN = "expressive_design";
+    private static final String PROP_EXPRESSIVE_DESIGN = "persist.sys.is_expressive_design_enabled";
 
     private Preference mShowCutoutForce;
     private Preference mSmartPixels;
@@ -75,6 +80,18 @@ public class UserInterface extends SettingsPreferenceFragment {
                 com.android.internal.R.bool.config_supportSmartPixels);
         if (!mSmartPixelsSupported)
             prefScreen.removePreference(mSmartPixels);
+
+        SwitchPreferenceCompat expressiveDesign = findPreference(KEY_EXPRESSIVE_DESIGN);
+        if (expressiveDesign != null) {
+            boolean currentValue = SystemProperties.getBoolean(PROP_EXPRESSIVE_DESIGN, true);
+            expressiveDesign.setChecked(currentValue);
+            expressiveDesign.setOnPreferenceClickListener(pref -> {
+                boolean enabled = ((SwitchPreferenceCompat) pref).isChecked();
+                SystemProperties.set(PROP_EXPRESSIVE_DESIGN, enabled ? "1" : "0");
+                SystemRestartUtils.showSystemRestartDialog(getContext());
+                return true;
+            });
+        }
     }
 
     public static void reset(Context mContext) {

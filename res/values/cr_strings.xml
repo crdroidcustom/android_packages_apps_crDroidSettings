@@ -1480,4 +1480,8 @@
     <string name="keybox_toast_missing_data">Invalid keybox XML: required fields missing</string>
     <string name="keybox_toast_file_loaded">Keybox loaded</string>
     <string name="keybox_toast_file_cleared">Keybox cleared</string>
+
+    <!-- Interface / Expressive Design -->
+    <string name="expressive_design_title">Expressive Design</string>
+    <string name="expressive_design_summary">Enable Expressive Design preview. Keep this disabled ONLY if UX is affected</string>
 </resources>

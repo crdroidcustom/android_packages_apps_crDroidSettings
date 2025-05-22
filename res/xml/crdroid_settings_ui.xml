@@ -38,6 +38,14 @@
         android:summary="@string/charging_animation_summary"
         android:defaultValue="true" />
 
+    <SwitchPreferenceCompat
+        android:key="expressive_design"
+        android:icon="@drawable/ic_shapes"
+        android:title="@string/expressive_design_title"
+        android:summary="@string/expressive_design_summary"
+        android:defaultValue="true"
+        android:persistent="true" />
+
     <!-- Display Cutout -->
     <Preference
         android:key="display_cutout_force_fullscreen_settings"
